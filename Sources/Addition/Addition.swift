@@ -4,7 +4,9 @@ public import Polarity
 ///
 /// APIs use `Addition` as a shared property tag and as the namespace for
 /// reusable addition kernels.
-public enum Addition {
+public enum Addition {}
+
+extension Addition {
 
     public enum Error: Swift.Error, Hashable, Sendable {
         case overflow
