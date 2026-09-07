@@ -1,9 +1,9 @@
 public import Polarity
 
-/// The reusable identity of an addition operation.
-///
-/// APIs use `Addition` as a shared property tag and as the namespace for
-/// reusable addition kernels.
+
+
+
+
 public enum Addition {}
 
 extension Addition {
@@ -12,7 +12,7 @@ extension Addition {
         case overflow
     }
 
-    /// Adds two fixed-width integers and reports overflow without trapping.
+
     @inlinable
     public static func reporting<Value: FixedWidthInteger>(
         _ lhs: Value,
@@ -22,7 +22,7 @@ extension Addition {
         return (result.partialValue, result.overflow)
     }
 
-    /// Adds two fixed-width integers exactly.
+
     @inlinable
     public static func exact<Value: FixedWidthInteger>(
         _ lhs: Value,
@@ -33,7 +33,7 @@ extension Addition {
         return result.value
     }
 
-    /// Adds two fixed-width integers, clamping overflow to the nearest bound.
+
     @inlinable
     public static func saturating<Value: FixedWidthInteger>(
         _ lhs: Value,
@@ -48,17 +48,17 @@ extension Addition {
 
 extension Addition {
 
-    /// Addition for values represented by an unsigned magnitude and binary
-    /// polarity.
+
+
     public enum Signed {}
 }
 
 extension Addition.Signed {
 
-    /// Exactly adds two binary signed magnitudes backed by unsigned storage.
-    ///
-    /// Either polarity may accompany a zero input. A zero result always uses
-    /// positive polarity.
+
+
+
+
     @inlinable
     public static func exact<Storage: FixedWidthInteger & UnsignedInteger>(
         lhsMagnitude: Storage,
@@ -78,7 +78,7 @@ extension Addition.Signed {
         )
     }
 
-    /// Adds two binary signed magnitudes, clamping equal-sign overflow.
+
     @inlinable
     public static func saturating<Storage: FixedWidthInteger & UnsignedInteger>(
         lhsMagnitude: Storage,
