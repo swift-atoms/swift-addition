@@ -1,8 +1,8 @@
 import Addition
 import Testing
 
-@Suite struct AugmentedAdditionTests {
-    @Test func residualPreservesLostUnit() {
+@Suite struct `Augmented addition preserves rounding residuals` {
+    @Test func `The addition residual preserves a lost unit`() {
         let result = Addition.augmented(0x1p54 as Double, 1)
         #expect(result.head == 0x1p54)
         #expect(result.tail == 1)
@@ -11,7 +11,7 @@ import Testing
         #expect(reversed.tail == result.tail)
     }
 
-    @Test func cancellationAndNonfiniteResults() {
+    @Test func `Cancellation is exact and nonfinite results have no residual guarantee`() {
         let cancellation = Addition.augmented(Double.greatestFiniteMagnitude, -Double.greatestFiniteMagnitude)
         #expect(cancellation.head == 0 && cancellation.tail == 0)
         let overflow = Addition.augmented(Double.greatestFiniteMagnitude, Double.greatestFiniteMagnitude)
