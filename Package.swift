@@ -13,8 +13,8 @@ let package = Package(
     ],
     products: [
         .library(name: "Addition", targets: ["Addition"]),
-        .library(name: "Addition Standard Library Integration", targets: ["Addition Standard Library Integration"]),
-        .library(name: "Addition Foundation Library Integration", targets: ["Addition Foundation Library Integration"]),
+
+        .library(name: "Addition Foundation Integration", targets: ["Addition Foundation Integration"]),
         .library(name: "Addition Test Support", targets: ["Addition Test Support"]),
     ],
     dependencies: [
@@ -31,20 +31,13 @@ let package = Package(
             ],
             path: "Sources/Addition"
         ),
+        
         .target(
-            name: "Addition Standard Library Integration",
+            name: "Addition Foundation Integration",
             dependencies: [
                 .target(name: "Addition"),
             ],
-            path: "Sources/Addition Standard Library Integration"
-        ),
-        .target(
-            name: "Addition Foundation Library Integration",
-            dependencies: [
-                .target(name: "Addition"),
-                .target(name: "Addition Standard Library Integration"),
-            ],
-            path: "Sources/Addition Foundation Library Integration"
+            path: "Sources/Addition Foundation Integration"
         ),
         .target(
             name: "Addition Test Support",
@@ -59,8 +52,7 @@ let package = Package(
                 .target(name: "Addition"),
                 .product(name: "Polarity", package: "swift-polarity"),
                 .target(name: "Addition Test Support"),
-                .target(name: "Addition Standard Library Integration"),
-                .target(name: "Addition Foundation Library Integration"),
+                .target(name: "Addition Foundation Integration"),
             ],
             path: "Tests/Addition Tests"
         ),
