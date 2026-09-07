@@ -3,7 +3,7 @@ import Polarity
 import Testing
 
 @Suite
-struct `Addition Tests` {
+struct `Addition kernels implement checked exact and saturating arithmetic` {
 
     @Test
     func `UInt8 kernels agree with a UInt16 oracle exhaustively`() {
