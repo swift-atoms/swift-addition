@@ -52,7 +52,6 @@ let package = Package(
                 .target(name: "Addition"),
                 .product(name: "Polarity", package: "swift-polarity"),
                 .target(name: "Addition Test Support"),
-                .target(name: "Addition Foundation Integration"),
             ],
             path: "Tests/Addition Tests"
         ),
@@ -60,7 +59,7 @@ let package = Package(
     swiftLanguageModes: [.v6]
 )
 
-for target in package.targets where ![.system, .binary, .plugin].contains(target.type) {
+for target in package.targets where ![.system, .binary, .plugin, .macro].contains(target.type) {
     target.swiftSettings = (target.swiftSettings ?? []) + [
         .strictMemorySafety(),
         .enableUpcomingFeature("ExistentialAny"),
