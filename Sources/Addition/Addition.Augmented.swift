@@ -1,9 +1,5 @@
 extension Addition {
 
-
-
-
-
     @inlinable
     public static func augmented<T: FloatingPoint>(_ lhs: T, _ rhs: T) -> (head: T, tail: T) {
         let head = lhs + rhs
@@ -11,8 +7,6 @@ extension Addition {
         let y = head - x
         return (head, (lhs - x) + (rhs - y))
     }
-
-
 
     @inlinable
     public static func augmented<T: FloatingPoint>(large: T, small: T) -> (head: T, tail: T) {

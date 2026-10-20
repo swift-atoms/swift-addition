@@ -1,9 +1,5 @@
 public import Polarity
 
-
-
-
-
 public enum Addition {}
 
 extension Addition {
@@ -11,7 +7,6 @@ extension Addition {
     public enum Error: Swift::Error, Hashable, Sendable {
         case overflow
     }
-
 
     @inlinable
     public static func reporting<Value: FixedWidthInteger>(
@@ -22,7 +17,6 @@ extension Addition {
         return (result.partialValue, result.overflow)
     }
 
-
     @inlinable
     public static func exact<Value: FixedWidthInteger>(
         _ lhs: Value,
@@ -32,7 +26,6 @@ extension Addition {
         guard !result.overflow else { throw .overflow }
         return result.value
     }
-
 
     @inlinable
     public static func saturating<Value: FixedWidthInteger>(
@@ -48,16 +41,10 @@ extension Addition {
 
 extension Addition {
 
-
-
     public enum Signed {}
 }
 
 extension Addition.Signed {
-
-
-
-
 
     @inlinable
     public static func exact<Storage: FixedWidthInteger & UnsignedInteger>(
@@ -77,7 +64,6 @@ extension Addition.Signed {
             rhsPolarity: rhsPolarity
         )
     }
-
 
     @inlinable
     public static func saturating<Storage: FixedWidthInteger & UnsignedInteger>(

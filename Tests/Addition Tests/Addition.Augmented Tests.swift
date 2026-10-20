@@ -12,9 +12,15 @@ import Testing
     }
 
     @Test func `Cancellation is exact and nonfinite results have no residual guarantee`() {
-        let cancellation = Addition.augmented(Double.greatestFiniteMagnitude, -Double.greatestFiniteMagnitude)
+        let cancellation = Addition.augmented(
+            Double.greatestFiniteMagnitude,
+            -Double.greatestFiniteMagnitude
+        )
         #expect(cancellation.head == 0 && cancellation.tail == 0)
-        let overflow = Addition.augmented(Double.greatestFiniteMagnitude, Double.greatestFiniteMagnitude)
+        let overflow = Addition.augmented(
+            Double.greatestFiniteMagnitude,
+            Double.greatestFiniteMagnitude
+        )
         #expect(overflow.head.isInfinite)
         #expect(overflow.tail.isNaN)
     }
