@@ -1,4 +1,4 @@
-public import Polarity
+import Polarity
 
 
 extension Addition {
