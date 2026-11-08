@@ -4,7 +4,6 @@ public enum Addition {}
 
 extension Addition {
 
-
     @inlinable
     public static func reporting<Value: FixedWidthInteger>(
         _ lhs: Value,
